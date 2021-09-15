@@ -1,8 +1,22 @@
 import React from 'react'
+import { Header } from 'src/components'
+import Footer from 'src/components/Footer'
 import Styled from './styles'
 
-const GeneralLayout: React.FC = () => {
-  return <Styled.GeneralLayout>GeneralLayout component</Styled.GeneralLayout>
+interface Props {
+  children: React.ReactNode
+}
+
+const GeneralLayout: React.FC<Props> = (props) => {
+  const { children } = props
+
+  return (
+    <Styled.GeneralLayout>
+      <Header />
+      {children}
+      <Footer />
+    </Styled.GeneralLayout>
+  )
 }
 
 export default GeneralLayout
