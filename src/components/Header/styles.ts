@@ -7,6 +7,7 @@ import {
 
 const Header = styled(AppBar)`
   display: block;
+  position: static;
 `
 
 const Toolbar = styled(MuiToolbar)`

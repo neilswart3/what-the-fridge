@@ -13,7 +13,7 @@ const GeneralLayout: React.FC<Props> = (props) => {
   return (
     <Styled.GeneralLayout>
       <Header />
-      {children}
+      <Styled.Main>{children}</Styled.Main>
       <Footer />
     </Styled.GeneralLayout>
   )

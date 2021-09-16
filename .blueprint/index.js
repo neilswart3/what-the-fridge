@@ -3,12 +3,13 @@ const { component, barrel, styles } = require('./component_templates.js')
 
 // grab component name from terminal argument
 const [type] = process.argv.slice(2)
-const [name] = process.argv.slice(3)
-const [props] = process.argv.slice(4)
+const [relPath] = process.argv.slice(3)
+const [name] = process.argv.slice(4)
+const [props] = process.argv.slice(5)
 
 if (!name) throw new Error('You must include a component name.')
 
-const dir = `./src/${type}/${name}/`
+const dir = `./src/${type}${relPath !== '.' ? `/${relPath}` : ''}/${name}/`
 
 // throw an error if the file already exists
 if (fs.existsSync(dir))
@@ -43,6 +44,8 @@ fs.writeFile(`${dir}/index.ts`, barrel(name), writeFileErrorHandler)
 // insert new component into 'components/index.ts file
 fs.readFile(`./src/${type}/index.ts`, 'utf8', function (err, data) {
   if (err) throw err
+
+  if (relPath !== '.') return
 
   // grab all components and combine them with new component
   const currentComponents = data.match(/(?<=import )(.*?)(?= from)/g) || null

@@ -1,8 +1,7 @@
 import styled from 'styled-components'
+import { BottomNavigation } from '@material-ui/core'
 
-const Footer = styled.div`
-  display: block;
-`
+const Footer = styled(BottomNavigation)``
 
 const Styled = { Footer }
 
