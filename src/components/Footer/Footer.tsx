@@ -17,7 +17,12 @@ const Footer: React.FC = () => {
   return (
     <Styled.Footer value={pathname} onChange={handleChange}>
       {Object.entries(navItems).map(([key, { label, path, icon }]) => (
-        <BottomNavigationAction value={path} label={label} icon={icon} />
+        <BottomNavigationAction
+          key={key}
+          value={path}
+          label={label}
+          icon={icon}
+        />
       ))}
     </Styled.Footer>
   )
