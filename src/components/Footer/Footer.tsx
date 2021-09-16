@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
   const { pathname } = useLocation()
   const { push } = useHistory()
 
-  const handleChange = (e: React.ChangeEvent<{}>, newVal: Value): void => {
+  const handleChange = (_e: React.ChangeEvent<{}>, newVal: Value): void => {
     push(newVal)
   }
 
