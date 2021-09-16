@@ -1,26 +1,23 @@
-import { BottomNavigationAction } from '@material-ui/core'
 import React from 'react'
+import { useLocation, useHistory } from 'react-router-dom'
+import { BottomNavigationAction } from '@material-ui/core'
 import { navItems } from './helpers'
 import Styled from './styles'
 
-type Value = keyof typeof navItems
+type Value = '/' | '/meals' | '/inventory' | '/shopping'
 
 const Footer: React.FC = () => {
-  const [value, setValue] = React.useState<Value>('home')
+  const { pathname } = useLocation()
+  const { push } = useHistory()
 
   const handleChange = (e: React.ChangeEvent<{}>, newVal: Value): void => {
-    setValue(newVal)
+    push(newVal)
   }
 
   return (
-    <Styled.Footer value={value} onChange={handleChange}>
-      {Object.entries(navItems).map(([value, { label, icon }]) => (
-        <BottomNavigationAction
-          key={value}
-          value={value}
-          label={label}
-          icon={icon}
-        />
+    <Styled.Footer value={pathname} onChange={handleChange}>
+      {Object.entries(navItems).map(([key, { label, path, icon }]) => (
+        <BottomNavigationAction value={path} label={label} icon={icon} />
       ))}
     </Styled.Footer>
   )

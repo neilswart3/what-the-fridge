@@ -1,8 +1,21 @@
 import React from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { GeneralLayout } from 'src/layouts'
 
 function App() {
-  return <GeneralLayout>App content</GeneralLayout>
+  return (
+    <BrowserRouter>
+      <GeneralLayout>
+        <Switch>
+          <Route path="/meals">Meals</Route>
+          <Route path="/inventory">Inventory</Route>
+          <Route path="/shopping">Shopping</Route>
+          <Route path="/">Home</Route>
+        </Switch>
+      </GeneralLayout>
+      )
+    </BrowserRouter>
+  )
 }
 
 export default App

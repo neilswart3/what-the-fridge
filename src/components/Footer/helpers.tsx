@@ -7,18 +7,22 @@ import FastfoodIcon from '@material-ui/icons/Fastfood'
 export const navItems = {
   home: {
     label: 'Home',
+    path: '/',
     icon: <HomeIcon />,
   },
   meals: {
     label: 'Meals',
+    path: '/meals',
     icon: <FastfoodIcon />,
   },
   inventory: {
     label: 'Inventory',
+    path: '/inventory',
     icon: <KitchenIcon />,
   },
   shopping: {
     label: 'Shopping',
+    path: '/shopping',
     icon: <ListAltIcon />,
   },
 }
